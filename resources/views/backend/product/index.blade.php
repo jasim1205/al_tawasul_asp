@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
-@section('title','user list')
+@section('title','Product')
 @section('content')
-    <!--breadcrumb-->
+ <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">Tables</div>
         <div class="ps-3">
@@ -9,14 +9,14 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">User List</li>
+                    <li class="breadcrumb-item active" aria-current="page">Product List</li>
                 </ol>
             </nav>
         </div>
         
     </div>
     <div>
-        <a href="{{ route('user.create') }}" class="float-end text-decoration-none"><i class="fa fa-plus"></i></a>
+        <a href="{{ route('product.create') }}" class="float-end text-decoration-none"><i class="fa fa-plus"></i></a>
     </div>
     <!--end breadcrumb-->
     
@@ -28,38 +28,32 @@
                     <thead>
                         <tr>
                             <th>{{__('#SL')}}</th>
-                            <th>{{__('Image')}}</th>
+                            <th>{{__('Oem No')}}</th>
                             <th>{{__('Name')}}</th>
-                            <th>{{__('Email')}}</th>
-                            <th>{{__('Contact')}}</th>
-                            <th>{{__('Status')}}</th>
+                            <th>{{__('Model')}}</th>
+                            <th>{{__('Image')}}</th>
                             <th>{{__('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                       @forelse($user as $d)
+                       @forelse($product as $d)
                         <tr role="row" class="odd">
                             <td>{{++$loop->index}}</td>
+                            <td>{{$d->oem_no}}</td>
+                            <td>{{$d->name}}</td>
+                            <td>{{$d->model}}</td>
                             <td class="sorting_1">
-                                
-                                    <img class="rounded-circle" width="50px" src="{{asset('public/uploads/users/'.$d->image)}}" alt="">
-                                    
-                                
+                                <img class="rounded-circle" width="50px" src="{{asset('public/uploads/product/'.$d->image)}}" alt="">
                             </td>
-                            <td>{{$d->name_en}}</td>
-                            <td>{{$d->email}}</td>
-                            <td>{{$d->contact_en}}</td>
-                            <td style="color: @if($d->status==1) green @else red @endif; font-weight:bold;"><i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                            @if($d->status==1){{__('Active')}} @else{{__('Inactive')}} @endif</td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="{{route('user.edit',encryptor('encrypt',$d->id))}}" class=""><i class="fas fa-edit"></i>
+                                    <a href="{{route('product.edit',encryptor('encrypt',$d->id))}}" class=""><i class="fas fa-edit"></i>
                                     </a>
                                     
 
 
                                     <form id=""
-                                        action="{{ route('user.destroy', encryptor('encrypt', $d->id)) }}"
+                                        action="{{ route('product.destroy', encryptor('encrypt', $d->id)) }}"
                                         method="post">
                                         @csrf
                                         @method('delete')

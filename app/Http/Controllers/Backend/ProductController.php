@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::get();
-        return view('backen.product.index',compact('product'));
+        return view('backend.product.index',compact('product'));
     }
 
     /**
@@ -21,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backen.product.create');
+        return view('backend.product.create');
     }
 
     /**
@@ -37,9 +37,9 @@ class ProductController extends Controller
             if($request->hasFile('image')){
                 $imageName = rand(111,999).time().'.'.$request->image->extension();
                 $request->image->move(public_path('uploads/product'), $imageName);
-                $data->image=$imageName;
+                $product->image=$imageName;
             }
-           if($data->save()){
+           if($product->save()){
                 $this->notice::success('Successfully saved');
                 return redirect()->route('product.index');
             }
@@ -80,9 +80,9 @@ class ProductController extends Controller
             if($request->hasFile('image')){
                 $imageName = rand(111,999).time().'.'.$request->image->extension();
                 $request->image->move(public_path('uploads/product'), $imageName);
-                $data->image=$imageName;
+                $product->image=$imageName;
             }
-           if($data->save()){
+           if($product->save()){
                 $this->notice::success('Successfully saved');
                 return redirect()->route('product.index');
             }
