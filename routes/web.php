@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\DashboardController as dashboard;
 use App\Http\Controllers\backend\AuthenticationController as auth;
+use App\Http\Controllers\backend\UserController as user;
+use App\Http\Controllers\backend\ProductController as product;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +26,8 @@ Route::get('/logout', [auth::class,'signOut'])->name('logOut');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
+    Route::resource('user', user::class);
+    Route::resource('product', product::class);
 });
 // Route::get('/', function () {
 //     return view('welcome');

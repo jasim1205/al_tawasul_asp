@@ -77,9 +77,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::get();
         $user = User::findOrFail(encryptor('decrypt',$id));
-        return view('backend.user.edit',compact('user','role'));
+        return view('backend.user.edit',compact('user'));
     }
 
     /**
@@ -104,7 +103,7 @@ class UserController extends Controller
                 $user->image = $imageName;
             }
             if($user->save()){
-                $this->notice::success('User Data Successfully Saved');
+                $this->notice::success('User Data Successfully Updated');
                 return redirect()->route('user.index');
             }else{
                 $this->notice::error('Something wrong Please try again');
