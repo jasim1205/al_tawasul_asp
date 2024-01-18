@@ -3,7 +3,7 @@
 @section('content')
 <div class="register-box">
   <div class="register-logo">
-    <a href="#"><b>Admin</b>LTE</a>
+    <a href="#"><b>Al Tawasul</b>ASP</a>
   </div>
 
   <div class="card">
@@ -68,18 +68,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <div class="social-auth-links text-center">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
-      </div>
 
       <a href="{{route('login')}}" class="text-center">I already have a membership</a>
     </div>

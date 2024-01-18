@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>Electro - HTML Ecommerce Template</title>
+		<title>Al_Tawasul_ASP</title>
 
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -23,7 +23,7 @@
 
 		<!-- Font Awesome Icon -->
 		<link rel="stylesheet" href="{{('public/frontend/css/font-awesome.min.css')}}">
-       
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{{('public/frontend/css/style.css')}}"/>
 
@@ -36,10 +36,6 @@
 			<!-- TOP HEADER -->
 			<div id="top-header">
 				<div class="container">
-					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i>{{$user->contact_en}} </a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i>{{$user->email}}</a></li>
-					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="{{route('login')}}"><i class="fa fa-user-o"></i> My Account</a></li>
 					</ul>
@@ -58,7 +54,14 @@
 						<div class="col-md-8">
 							<div class="header-logo">
 								<a href="#" class="logo">
-                                    <h3 class="heading">AL TAWASUL AUTO SPHARE PARSTS TRADING LLC.</h3>
+									<h1 class="text-white text-center">التواصل لتجارة قطع غيار السيارات ذ.م.م.</h1>
+                                    <h1 class="text-white text-center">AL TAWASUL AUTO SPHARE PARSTS TRADING LLC.</h1>
+									<div class="d-flex justify-content-center fs-4">
+									<p class="heading text-warning text-center px-3"><i class="fa fa-phone"></i> +971 55 561 1560</p>
+									<p class="heading text-warning text-center"><i class="fa fa-address-book"></i> Behind Rak Mall, R.A.K, U.A.E</p>
+									<p class="heading text-primary text-center px-3"><i class="fa fa-envelope-o"></i> monir@gmail.com</p>
+									</div>
+									
 								</a>
 							</div>
 						</div>
@@ -136,7 +139,7 @@
 						<div class="row">
                             @foreach($product as $p)
 							<div class="col-sm-3">
-								<div class="product">
+								<div class="product h-100">
 									<div class="product-img">
 										<img src="{{asset('public/uploads/product/'.$p->image)}}" alt="">
 									</div>
@@ -232,35 +235,24 @@
 				<!-- container -->
 				<div class="container">
 					<!-- row -->
+
 					<div class="row">
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<p>LAL TAWASUL AUTO SPHARE PARSTS TRADING LLC.</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>Behind Rak Mall, R.A.K, U.A.E</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i> +971 55 561 1560</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>monir@gmail.com</a></li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
-								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
-								</ul>
-							</div>
-						</div>
 
 						<div class="clearfix visible-xs"></div>
 
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
 								<ul class="footer-links">
@@ -273,7 +265,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">Service</h3>
 								<ul class="footer-links">
