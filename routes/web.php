@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\DashboardController as dashboard;
 use App\Http\Controllers\backend\AuthenticationController as auth;
 use App\Http\Controllers\backend\UserController as user;
 use App\Http\Controllers\backend\ProductController as product;
+use App\Http\Controllers\HomeController as home;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\backend\ProductController as product;
 
 Route::get('/register', [auth::class,'signUpForm'])->name('register');
 Route::post('/register', [auth::class,'signUpStore'])->name('register.store');
-Route::get('/', [auth::class,'signInForm'])->name('login');
+Route::get('/login', [auth::class,'signInForm'])->name('login');
 Route::post('/login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('/logout', [auth::class,'signOut'])->name('logOut');
 
@@ -29,6 +30,7 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::resource('user', user::class);
     Route::resource('product', product::class);
 });
+Route::get('/', [home::class,'index'])->name('home');
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('home');
 // });
